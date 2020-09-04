@@ -87,6 +87,11 @@ const menu = [
 const container = document.querySelector(".container");
 
 window.addEventListener("DOMContentLoaded", function() {
+  displayMenuItems(menu);
+});
+
+// create a reusable function to display menus
+function displayMenuItems() {
   let displayMenu = menu
     .map(function(item) {
       console.log(item.price);
@@ -99,4 +104,4 @@ window.addEventListener("DOMContentLoaded", function() {
     })
     .join("");
   container.innerHTML = displayMenu;
-});
+}
