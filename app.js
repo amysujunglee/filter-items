@@ -83,18 +83,18 @@ const menu = [
 
 // create menu array - 10 menus
 // select the items
-// disply the menus when the browser is loaded
+// disply menus when the browser is loaded
 const container = document.querySelector(".container");
+const btnsContainer = document.querySelector(".btns-container");
 
 window.addEventListener("DOMContentLoaded", function() {
   displayMenuItems(menu);
 });
 
 // create a reusable function to display menus
-function displayMenuItems() {
-  let displayMenu = menu
+function displayMenuItems(menuItems) {
+  let displayMenu = menuItems
     .map(function(item) {
-      console.log(item.price);
       return `<article class="col-6">
     <img src="${item.img}" alt="" />
     <p class="mb-0">${item.title}</p>
