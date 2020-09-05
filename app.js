@@ -85,10 +85,19 @@ const menu = [
 // select the items
 // disply menus when the browser is loaded
 const container = document.querySelector(".container");
-const btnsContainer = document.querySelector(".btns-container");
+const btnContainer = document.querySelector(".btn-container");
+const filterBtns = document.querySelectorAll(".filter-btn");
 
+// load items
 window.addEventListener("DOMContentLoaded", function() {
   displayMenuItems(menu);
+});
+
+// filter items
+filterBtns.forEach(function(btn) {
+  btn.addEventListener("click", function(e) {
+    console.log(e.currentTarget.dataset.id);
+  });
 });
 
 // create a reusable function to display menus
