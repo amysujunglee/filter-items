@@ -1,6 +1,6 @@
 img {
   width: 50%;
 }
-.button-container {
-  margin: 0 atuo;
+button {
+  text-transform: capitalize;
 }

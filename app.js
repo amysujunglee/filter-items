@@ -81,19 +81,16 @@ const menu = [
   }
 ];
 
-// create menu array - 10 menus
 // select the items
-// disply menus when the browser is loaded
 const container = document.querySelector(".container");
-const btnContainer = document.querySelector(".btn-container");
 const filterBtns = document.querySelectorAll(".filter-btn");
 
-// load items
+// load the menus
 window.addEventListener("DOMContentLoaded", function() {
   displayMenuItems(menu);
 });
 
-// filter items
+// filter the menus by category
 filterBtns.forEach(function(btn) {
   btn.addEventListener("click", function(e) {
     const category = e.currentTarget.dataset.id;
@@ -112,15 +109,16 @@ filterBtns.forEach(function(btn) {
 
 // create a reusable function to display menus
 function displayMenuItems(menuItems) {
-  let displayMenu = menuItems
-    .map(function(item) {
+  let displayMenus = menuItems
+    .map(function(menuItem) {
       return `<article class="col-6">
-    <img src="${item.img}" alt="" />
-    <p class="mb-0">${item.title}</p>
-    <p class="mb-0">${item.price}</p>
-    <p class="desc">${item.desc}</p>
+    <img src="${menuItem.img}" alt="" />
+    <p class="mb-0 text-capitalize">${menuItem.title}</p>
+    <p class="mb-0">$${menuItem.price}</p>
+    <p class="desc">${menuItem.desc}</p>
   </article>`;
     })
     .join("");
-  container.innerHTML = displayMenu;
+
+  container.innerHTML = displayMenus;
 }
