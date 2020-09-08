@@ -11,12 +11,13 @@ Methods:
 - .join()
 - .reduce(accumulator, currentValue)
 - .includes()
+- .push()
 
-Step: 
+Step:
+
 - Create an array for menus
 - Select the times (container, buttons)
 - Load the menus when the browser is loaded
 - Create a reusable function to display menus
 - Filter the menus by categories
 - Get only UNIQUE categories (If there is a new category added, the category will automatically be created)
-

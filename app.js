@@ -83,7 +83,6 @@ const menu = [
 
 // select the items
 const container = document.querySelector(".container");
-const filterBtns = document.querySelectorAll(".filter-btn");
 const btnContainer = document.querySelector(".btn-container");
 
 // load the menus
@@ -93,28 +92,37 @@ window.addEventListener("DOMContentLoaded", function() {
   // get only UNIQUE categories
   const categories = menu.reduce(
     function(values, item) {
-      console.log(item);
+      if (!values.includes(item.category)) {
+        values.push(item.category);
+      }
       return values;
     },
     ["all"]
   );
-});
+  const categoryBtns = categories
+    .map(function(category) {
+      return `<button class="filter-btn" type="button" data-id="${category}">${category}</button>`;
+    })
+    .join("");
+  btnContainer.innerHTML = categoryBtns;
+  const filterBtns = document.querySelectorAll(".filter-btn");
 
-// filter the menus by category
-filterBtns.forEach(function(btn) {
-  btn.addEventListener("click", function(e) {
-    const category = e.currentTarget.dataset.id;
-    const menuCategory = menu.filter(function(menuItem) {
-      if (menuItem.category === category) {
-        return menuItem;
+  // filter the menus by category
+  filterBtns.forEach(function(btn) {
+    btn.addEventListener("click", function(e) {
+      const category = e.currentTarget.dataset.id;
+      const menuCategory = menu.filter(function(menuItem) {
+        if (menuItem.category === category) {
+          return menuItem;
+        }
+      });
+
+      if (category === "all") {
+        displayMenuItems(menu);
+      } else {
+        displayMenuItems(menuCategory);
       }
     });
-
-    if (category === "all") {
-      displayMenuItems(menu);
-    } else {
-      displayMenuItems(menuCategory);
-    }
   });
 });
 
