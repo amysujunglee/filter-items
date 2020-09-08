@@ -84,10 +84,20 @@ const menu = [
 // select the items
 const container = document.querySelector(".container");
 const filterBtns = document.querySelectorAll(".filter-btn");
+const btnContainer = document.querySelector(".btn-container");
 
 // load the menus
 window.addEventListener("DOMContentLoaded", function() {
   displayMenuItems(menu);
+
+  // get only UNIQUE categories
+  const categories = menu.reduce(
+    function(values, item) {
+      console.log(item);
+      return values;
+    },
+    ["all"]
+  );
 });
 
 // filter the menus by category
@@ -99,6 +109,7 @@ filterBtns.forEach(function(btn) {
         return menuItem;
       }
     });
+
     if (category === "all") {
       displayMenuItems(menu);
     } else {
@@ -109,16 +120,16 @@ filterBtns.forEach(function(btn) {
 
 // create a reusable function to display menus
 function displayMenuItems(menuItems) {
-  let displayMenus = menuItems
-    .map(function(menuItem) {
+  let displayMenuItems = menuItems
+    .map(function(item) {
       return `<article class="col-6">
-    <img src="${menuItem.img}" alt="" />
-    <p class="mb-0 text-capitalize">${menuItem.title}</p>
-    <p class="mb-0">$${menuItem.price}</p>
-    <p class="desc">${menuItem.desc}</p>
+    <img src="${item.img}" alt="${item.title}" />
+    <p class="mb-0">${item.title}</p>
+    <p class="mb-0">$${item.price}</p>
+    <p class="desc">${item.desc}</p>
   </article>`;
     })
     .join("");
 
-  container.innerHTML = displayMenus;
+  container.innerHTML = displayMenuItems;
 }
