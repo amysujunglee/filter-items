@@ -88,7 +88,27 @@ const btnContainer = document.querySelector(".btn-container");
 // load the menus
 window.addEventListener("DOMContentLoaded", function() {
   displayMenuItems(menu);
+  displayMenuButtons();
+});
 
+// create a reusable function to display menus
+function displayMenuItems(menuItems) {
+  let displayMenuItems = menuItems
+    .map(function(item) {
+      return `<article class="col-6">
+    <img src="${item.img}" alt="${item.title}" />
+    <p class="mb-0">${item.title}</p>
+    <p class="mb-0">$${item.price}</p>
+    <p class="desc">${item.desc}</p>
+  </article>`;
+    })
+    .join("");
+
+  container.innerHTML = displayMenuItems;
+}
+
+// create a functino to display menu category buttons
+function displayMenuButtons() {
   // get only UNIQUE categories
   const categories = menu.reduce(
     function(values, item) {
@@ -105,7 +125,7 @@ window.addEventListener("DOMContentLoaded", function() {
     })
     .join("");
   btnContainer.innerHTML = categoryBtns;
-  const filterBtns = document.querySelectorAll(".filter-btn");
+  const filterBtns = btnContainer.querySelectorAll(".filter-btn");
 
   // filter the menus by category
   filterBtns.forEach(function(btn) {
@@ -124,20 +144,4 @@ window.addEventListener("DOMContentLoaded", function() {
       }
     });
   });
-});
-
-// create a reusable function to display menus
-function displayMenuItems(menuItems) {
-  let displayMenuItems = menuItems
-    .map(function(item) {
-      return `<article class="col-6">
-    <img src="${item.img}" alt="${item.title}" />
-    <p class="mb-0">${item.title}</p>
-    <p class="mb-0">$${item.price}</p>
-    <p class="desc">${item.desc}</p>
-  </article>`;
-    })
-    .join("");
-
-  container.innerHTML = displayMenuItems;
 }
