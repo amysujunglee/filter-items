@@ -107,7 +107,7 @@ function displayMenuItems(menuItems) {
   container.innerHTML = displayMenuItems;
 }
 
-// create a functino to display menu category buttons
+// create a function to display menu category buttons
 function displayMenuButtons() {
   // get only UNIQUE categories
   const categories = menu.reduce(

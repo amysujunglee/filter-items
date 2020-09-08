@@ -21,3 +21,4 @@ Step:
 - Create a reusable function to display menus
 - Filter the menus by categories
 - Get only UNIQUE categories (If there is a new category added, the category will automatically be created)
+- Create a function to display menu category buttons
