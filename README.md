@@ -1,20 +1,18 @@
 # Filter Items
-
 Filtering items by category - if there is a new category, it will automatically create the category.
 
-Languages used: JavaScript, HTML, CSS
+## Languages
+- JavaScript, HTML, CSS
 
-Methods:
-
+## Methods
 - e.currentTarget.dataset
-- .map()
-- .join()
-- .reduce(accumulator, currentValue)
-- .includes()
-- .push()
+- map()
+- join()
+- reduce(accumulator, currentValue)
+- includes()
+- push()
 
-Step:
-
+## Steps
 - Create an array for menus
 - Select the times (container, buttons)
 - Load the menus when the browser is loaded
