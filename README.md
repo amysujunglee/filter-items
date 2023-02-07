@@ -8,7 +8,7 @@ Filtering items by category - if there is a new category, it will automatically 
 - e.currentTarget.dataset
 - map()
 - join()
-- reduce(accumulator, currentValue)
+- reduce()
 - includes()
 - push()
 
